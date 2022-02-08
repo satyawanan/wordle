@@ -46,13 +46,24 @@ def is_done(feedback):
     else:
         return False
 
+guide = """"
+Guide : 
+1. Type your answer
+2. Feedback meaning :
+- X : Letter not exist
+- ? : Letter exist but in the wrong position
+- V : Letter in the right position
+"""
+
+print(guide)
+
 WORDS = prepare_words()
 
 solution = generate_solution()
 
 chance = 6
 while(chance>0):
-    guess = input('Your Guess : ')
+    guess = (input('Your Guess : ')).lower()
     valid = is_valid(guess)
     if(valid[0]):
         feedback = give_feedback(guess, solution)
